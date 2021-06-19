@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:opengate_frontscreen/pages/home/view/home_page.dart';
 
-import 'pages/home/view/home_page.dart';
 import 'pages/splash/view/splash_page.dart';
 import 'theme.dart';
 
