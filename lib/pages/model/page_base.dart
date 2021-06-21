@@ -22,10 +22,10 @@ class PageBase extends StatelessWidget {
               Expanded(
                 child: Text(
                   title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline2
-                      ?.merge(TextStyle(height: 0.8)),
+                  style: Theme.of(context).textTheme.headline2?.merge(TextStyle(
+                        height: 0.8,
+                        fontSize: 40,
+                      )),
                   overflow: TextOverflow.fade,
                 ),
               ),

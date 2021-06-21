@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:opengate_frontscreen/pages/clock/view/clock_page.dart';
 import 'package:opengate_frontscreen/pages/interfaces/view/interfaces_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -64,6 +65,11 @@ class HomePage extends StatelessWidget {
                   name: "Alimentation",
                   route: InterfacesPage.route(),
                   icon: Icons.power_settings_new,
+                ),
+                _HomeCard(
+                  name: "Veille",
+                  route: ClockPage.route(),
+                  icon: FontAwesomeIcons.moon,
                 ),
               ],
             ),

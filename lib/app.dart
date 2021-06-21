@@ -38,6 +38,7 @@ class _AppViewState extends State<AppView> {
       theme: theme,
       navigatorKey: _navigatorKey,
       home: HomePage(),
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: (_) => SplashPage.route(),
     );
   }
