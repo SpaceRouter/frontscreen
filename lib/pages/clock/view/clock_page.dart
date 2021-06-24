@@ -17,32 +17,37 @@ class ClockPage extends StatelessWidget {
     });
 
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: StreamBuilder<DateTime>(
-                stream: timer,
-                builder: (context, value) {
-                  return Text(
-                    DateFormat("HH:mm").format(value.data ?? DateTime.now()),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 100,
-                    ),
-                  );
-                },
+      body: GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Column(
+          children: [
+            Expanded(
+              child: Center(
+                child: StreamBuilder<DateTime>(
+                  stream: timer,
+                  builder: (context, value) {
+                    return Text(
+                      DateFormat("HH:mm").format(DateTime.now()),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 100,
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-          Image.asset(
-            "assets/esieespace_blue.png",
-            height: 60,
-          ),
-          SizedBox(
-            height: 10,
-          )
-        ],
+            Image.asset(
+              "assets/esieespace_blue.png",
+              height: 100,
+            ),
+            SizedBox(
+              height: 20,
+            )
+          ],
+        ),
       ),
     );
   }

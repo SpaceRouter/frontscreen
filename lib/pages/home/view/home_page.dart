@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:opengate_frontscreen/pages/clock/view/clock_page.dart';
 import 'package:opengate_frontscreen/pages/interfaces/view/interfaces_page.dart';
+import 'package:opengate_frontscreen/pages/victor.dart';
+import 'package:opengate_frontscreen/pages/wifi/view/wifi_page.dart';
 
 class HomePage extends StatelessWidget {
   static Route route() {
@@ -26,12 +28,19 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   child: Text(
                     "OpenGate",
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headline5?.merge(
+                          TextStyle(
+                            fontSize: 40,
+                          ),
+                        ),
                   ),
                 ),
-                Image.asset(
-                  "assets/esieespace_grey.png",
-                  height: 45,
+                GestureDetector(
+                  onTap: () => Navigator.push(context, VictorPage.route()),
+                  child: Image.asset(
+                    "assets/esieespace_grey.png",
+                    height: 70,
+                  ),
                 ),
               ],
             ),
@@ -43,32 +52,32 @@ class HomePage extends StatelessWidget {
               children: [
                 _HomeCard(
                   name: "Wifi",
-                  route: InterfacesPage.route(),
+                  onTap: () => Navigator.push(context, WifiPage.route()),
                   icon: Icons.wifi,
                 ),
                 _HomeCard(
                   name: "Interfaces",
-                  route: InterfacesPage.route(),
+                  onTap: () => Navigator.push(context, InterfacesPage.route()),
                   icon: Icons.settings_ethernet,
                 ),
                 _HomeCard(
                   name: "Docker",
-                  route: InterfacesPage.route(),
+                  onTap: () => Navigator.push(context, InterfacesPage.route()),
                   icon: FontAwesomeIcons.docker,
                 ),
                 _HomeCard(
                   name: "Date",
-                  route: InterfacesPage.route(),
+                  onTap: () => Navigator.push(context, InterfacesPage.route()),
                   icon: Icons.calendar_today,
                 ),
                 _HomeCard(
                   name: "Alimentation",
-                  route: InterfacesPage.route(),
+                  onTap: () => Navigator.push(context, InterfacesPage.route()),
                   icon: Icons.power_settings_new,
                 ),
                 _HomeCard(
                   name: "Veille",
-                  route: ClockPage.route(),
+                  onTap: () => Navigator.push(context, ClockPage.route()),
                   icon: FontAwesomeIcons.moon,
                 ),
               ],
@@ -94,13 +103,13 @@ class HomePage extends StatelessWidget {
 
 class _HomeCard extends StatelessWidget {
   final String name;
-  final Route route;
+  final GestureTapCallback onTap;
   final IconData? icon;
 
   const _HomeCard({
     Key? key,
     required this.name,
-    required this.route,
+    required this.onTap,
     this.icon,
   }) : super(key: key);
 
@@ -108,10 +117,10 @@ class _HomeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
-        onTap: () => Navigator.push(context, route),
+        onTap: onTap,
         child: SizedBox(
-          height: 80,
-          width: 100,
+          height: 100,
+          width: 120,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
