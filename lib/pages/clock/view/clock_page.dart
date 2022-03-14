@@ -39,9 +39,12 @@ class ClockPage extends StatelessWidget {
                 ),
               ),
             ),
-            Image.asset(
-              "assets/esieespace_blue.png",
-              height: 100,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 50),
+              child: Image.asset(
+                "assets/opengate.png",
+                height: 100,
+              ),
             ),
             SizedBox(
               height: 20,

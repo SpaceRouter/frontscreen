@@ -24,11 +24,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-  font_awesome_flutter: ^9.0.0
-  http: ^0.13.3
+  font_awesome_flutter: ^9.2.0
+  http: ^0.13.4
   flutter_bloc: ^7.0.1
   intl: ^0.17.0
-  equatable: ^2.0.2
+  equatable: ^2.0.3
   qr_flutter: ^4.0.0
 
   # The following adds the Cupertino Icons font to your application.
@@ -56,6 +56,8 @@ flutter:
      - assets/esieespace_white.png
      - assets/esieespace_blue.png
      - assets/victor.jpg
+     - assets/opengate.png
+     - assets/og.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

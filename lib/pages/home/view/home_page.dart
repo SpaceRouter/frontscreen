@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:opengate_frontscreen/pages/clock/view/clock_page.dart';
+import 'package:opengate_frontscreen/pages/alim/view/alim_page.dart';
 import 'package:opengate_frontscreen/pages/interfaces/view/interfaces_page.dart';
 import 'package:opengate_frontscreen/pages/victor.dart';
 import 'package:opengate_frontscreen/pages/wifi/view/wifi_page.dart';
@@ -25,15 +25,12 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
+                Image.asset(
+                  "assets/og.png",
+                  height: 70,
+                ),
                 Expanded(
-                  child: Text(
-                    "OpenGate",
-                    style: Theme.of(context).textTheme.headline5?.merge(
-                          TextStyle(
-                            fontSize: 40,
-                          ),
-                        ),
-                  ),
+                  child: SizedBox(),
                 ),
                 GestureDetector(
                   onTap: () => Navigator.push(context, VictorPage.route()),
@@ -50,32 +47,32 @@ class HomePage extends StatelessWidget {
             child: Wrap(
               alignment: WrapAlignment.center,
               children: [
-                _HomeCard(
+                HomeCard(
                   name: "Wifi",
                   onTap: () => Navigator.push(context, WifiPage.route()),
                   icon: Icons.wifi,
                 ),
-                _HomeCard(
+                HomeCard(
                   name: "Interfaces",
                   onTap: () => Navigator.push(context, InterfacesPage.route()),
                   icon: Icons.settings_ethernet,
                 ),
-                _HomeCard(
+                HomeCard(
                   name: "Docker",
                   onTap: () => Navigator.push(context, InterfacesPage.route()),
                   icon: FontAwesomeIcons.docker,
                 ),
-                _HomeCard(
+                /*_HomeCard(
                   name: "Date",
                   onTap: () => Navigator.push(context, InterfacesPage.route()),
                   icon: Icons.calendar_today,
-                ),
-                _HomeCard(
+                ),*/
+                HomeCard(
                   name: "Alimentation",
-                  onTap: () => Navigator.push(context, InterfacesPage.route()),
+                  onTap: () => Navigator.push(context, AlimPage.route()),
                   icon: Icons.power_settings_new,
                 ),
-                _HomeCard(
+                HomeCard(
                   name: "Veille",
                   onTap: () => Navigator.push(context, ClockPage.route()),
                   icon: FontAwesomeIcons.moon,
@@ -95,18 +92,40 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(
+            height: 30,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            child: Column(
+              children: [
+                Image.asset("assets/opengate.png"),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("The "),
+                    Image.asset(
+                      "assets/esieespace_grey.png",
+                      height: 40,
+                    ),
+                    Text("'s network team"),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
 }
 
-class _HomeCard extends StatelessWidget {
+class HomeCard extends StatelessWidget {
   final String name;
   final GestureTapCallback onTap;
   final IconData? icon;
 
-  const _HomeCard({
+  const HomeCard({
     Key? key,
     required this.name,
     required this.onTap,
